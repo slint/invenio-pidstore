@@ -365,7 +365,7 @@ class PersistentIdentifier(db.Model, Timestamp):
                     r.pid = pid
                 else:
                     with db.session.begin_nested():
-                        r = Redirect(pid=pid)
+                        r = Redirect(pid_id=pid.id)
                         db.session.add(r)
 
                 self.status = PIDStatus.REDIRECTED
